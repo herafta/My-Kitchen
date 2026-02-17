@@ -1,0 +1,172 @@
+[
+  {
+    "id": "REC-001",
+    "slug": "mansaf-jordanian",
+    "title": { "ar": "منسف أردني", "en": "Jordanian Mansaf", "tr": "Ürdün Mansafı" },
+    "category": { "ar": "طبق رئيسي", "en": "Main Dish", "tr": "Ana Yemek" },
+    "description": { "ar": "الطبق الوطني للأردن، لحم بلدي مع جميد كركي.", "en": "Traditional lamb cooked in fermented yogurt (Jameed).", "tr": "Fermente yoğurt (Jameed) ile pişirilmiş geleneksel kuzu eti." },
+    "ingredients": ["Lamb", "Rice", "Jameed", "Shrak Bread", "Pine Nuts", "Ghee"],
+    "instructions": {
+      "ar": ["اسلق اللحم", "جهز الجميد", "اطبخ الأرز", "رتب الخبز والأرز واللحم"],
+      "en": ["Boil Meat", "Prepare Jameed", "Cook Rice", "Layer Bread, Rice, Meat"],
+      "tr": ["Eti haşlayın", "Jameed'i hazırlayın", "Pilavı pişirin", "Ekmek, Pilav ve Eti dizin"]
+    },
+    "prep_time": 180,
+    "calories": 950,
+    "protein_type": "Meat",
+    "tags": ["lamb", "yogurt", "rice", "banquet"]
+  },
+  {
+    "id": "REC-002",
+    "slug": "fattoush",
+    "title": { "ar": "فتوش", "en": "Fattoush", "tr": "Fettuş" },
+    "category": { "ar": "مقبلات", "en": "Appetizer", "tr": "Meze" },
+    "description": { "ar": "سلطة خضراء مع خبز مقلي ودبس رمان.", "en": "Mixed greens with fried bread and pomegranate molasses.", "tr": "Kızarmış ekmek ve nar ekşisi ile karışık yeşillik." },
+    "ingredients": ["Lettuce", "Cucumber", "Tomato", "Radish", "Fried Bread", "Sumac"],
+    "instructions": {
+      "ar": ["قطع الخضار", "اقلي الخبز", "اخلط مع السماق والزيت"],
+      "en": ["Chop vegetables", "Fry bread", "Mix with sumac and oil"],
+      "tr": ["Sebzeleri doğrayın", "Ekmeği kızartın", "Sumak ve yağ ile karıştırın"]
+    },
+    "prep_time": 20,
+    "calories": 250,
+    "protein_type": "Vegetarian",
+    "tags": ["salad", "vegan", "bread", "vegetables"]
+  },
+  {
+    "id": "REC-003",
+    "slug": "kunafa",
+    "title": { "ar": "كنافة نابلسية", "en": "Kunafa Nabulsi", "tr": "Künefe" },
+    "category": { "ar": "حلويات", "en": "Dessert", "tr": "Tatlı" },
+    "description": { "ar": "عجينة كنافة خشنة مع جبنة عكاوي وقطر.", "en": "Cheese pastry soaked in sweet sugar-based syrup.", "tr": "Şerbetli peynirli tatlı." },
+    "ingredients": ["Kunafa Dough", "Nabulsi Cheese", "Sugar Syrup", "Pistachio", "Ghee"],
+    "instructions": {
+      "ar": ["افرد العجينة مع السمن", "أضف الجبن", "اشويها", "صب القطر"],
+      "en": ["Mix dough with ghee", "Add cheese", "Bake", "Pour syrup"],
+      "tr": ["Hamuru yağla karıştır", "Peynir ekle", "Pişir", "Şerbet dök"]
+    },
+    "prep_time": 45,
+    "calories": 600,
+    "protein_type": "Dairy",
+    "tags": ["sweet", "cheese", "pastry"]
+  },
+  {
+    "id": "REC-004",
+    "slug": "lentil-soup",
+    "title": { "ar": "شوربة عدس", "en": "Lentil Soup", "tr": "Mercimek Çorbası" },
+    "category": { "ar": "شوربة", "en": "Soup", "tr": "Çorba" },
+    "description": { "ar": "شوربة العدس الأحمر مع الكمون والليمون.", "en": "Red lentil soup with cumin and lemon.", "tr": "Kimyon ve limonlu kırmızı mercimek çorbası." },
+    "ingredients": ["Red Lentils", "Onion", "Carrot", "Cumin", "Lemon"],
+    "instructions": {
+      "ar": ["قلي البصل", "أضف العدس والماء", "اطحن الشوربة"],
+      "en": ["Sauté onion", "Add lentils and water", "Blend soup"],
+      "tr": ["Soğanı soteleyin", "Mercimek ve suyu ekleyin", "Çorbayı ezin"]
+    },
+    "prep_time": 30,
+    "calories": 180,
+    "protein_type": "Plant",
+    "tags": ["lentil", "soup", "vegan", "warm"]
+  },
+  {
+    "id": "REC-005",
+    "slug": "qamar-al-din",
+    "title": { "ar": "عصير قمر الدين", "en": "Qamar al-Din", "tr": "Kayısı Suyu" },
+    "category": { "ar": "مشروبات", "en": "Drink", "tr": "İçecek" },
+    "description": { "ar": "مشروب المشمش المجفف التقليدي.", "en": "Dried apricot paste drink.", "tr": "Kurutulmuş kayısı ezmesi içeceği." },
+    "ingredients": ["Apricot Paste", "Water", "Sugar", "Rose Water"],
+    "instructions": {
+      "ar": ["نقع المعجون في الماء", "خلط", "تبريد"],
+      "en": ["Soak paste", "Blend", "Chill"],
+      "tr": ["Ezmesi suda beklet", "Karıştır", "Soğut"]
+    },
+    "prep_time": 240,
+    "calories": 200,
+    "protein_type": "None",
+    "tags": ["drink", "cold", "fruit"]
+  },
+  {
+    "id": "REC-006",
+    "slug": "butter-chicken",
+    "title": { "ar": "دجاج بالزبدة", "en": "Butter Chicken", "tr": "Tereyağlı Tavuk" },
+    "category": { "ar": "طبق رئيسي", "en": "Main Dish", "tr": "Ana Yemek" },
+    "description": { "ar": "دجاج كاري كريمي على الطريقة الهندية (حلال).", "en": "Creamy tomato curry (Murgh Makhani).", "tr": "Kremalı domatesli köri tavuk." },
+    "ingredients": ["Chicken", "Tomato Puree", "Cream", "Butter", "Garam Masala"],
+    "instructions": {
+      "ar": ["تتبيل الدجاج", "طهي الصلصة", "خلط المكونات"],
+      "en": ["Marinate chicken", "Cook sauce", "Combine"],
+      "tr": ["Tavuğu marine et", "Sosu pişir", "Karıştır"]
+    },
+    "prep_time": 40,
+    "calories": 500,
+    "protein_type": "Chicken",
+    "tags": ["chicken", "curry", "spicy"]
+  },
+  {
+    "id": "REC-007",
+    "slug": "foul-mudammas",
+    "title": { "ar": "فول مدمس", "en": "Foul Mudammas", "tr": "Bakla Ezmesi" },
+    "category": { "ar": "سحور", "en": "Suhoor", "tr": "Sahur" },
+    "description": { "ar": "فول مطبوخ مع ثوم وليمون وزيت زيتون.", "en": "Fava beans with garlic, lemon, and olive oil.", "tr": "Sarımsak, limon ve zeytinyağlı bakla." },
+    "ingredients": ["Fava Beans", "Garlic", "Lemon", "Olive Oil", "Cumin"],
+    "instructions": {
+      "ar": ["تسخين الفول", "هرس خفيف", "تتبيل"],
+      "en": ["Heat beans", "Mash slightly", "Season"],
+      "tr": ["Baklayı ısıt", "Hafifçe ez", "Baharatla"]
+    },
+    "prep_time": 15,
+    "calories": 300,
+    "protein_type": "Plant",
+    "tags": ["beans", "breakfast", "vegan"]
+  },
+  {
+    "id": "REC-008",
+    "slug": "sambousek",
+    "title": { "ar": "سمبوسك لحم", "en": "Meat Sambousek", "tr": "Kıymalı Börek" },
+    "category": { "ar": "مقبلات", "en": "Appetizer", "tr": "Meze" },
+    "description": { "ar": "عجينة مقلية محشوة باللحم المفروم.", "en": "Fried pastry filled with minced meat.", "tr": "Kıyma dolgulu kızarmış hamur." },
+    "ingredients": ["Dough", "Minced Meat", "Onion", "Pine Nuts", "Spices"],
+    "instructions": {
+      "ar": ["حشي العجينة", "قلي بالزيت", "تقديم ساخن"],
+      "en": ["Fill dough", "Deep fry", "Serve hot"],
+      "tr": ["Hamuru doldur", "Kızart", "Sıcak servis et"]
+    },
+    "prep_time": 60,
+    "calories": 150,
+    "protein_type": "Meat",
+    "tags": ["pastry", "fried", "meat"]
+  },
+  {
+    "id": "REC-009",
+    "slug": "date-shake",
+    "title": { "ar": "ميلك شيك تمر", "en": "Date Shake", "tr": "Hurmalı Süt" },
+    "category": { "ar": "سحور", "en": "Suhoor", "tr": "Sahur" },
+    "description": { "ar": "مشروب طاقة للسحور بالحليب والتمر.", "en": "Energy smoothie with milk and dates.", "tr": "Süt ve hurma ile enerji içeceği." },
+    "ingredients": ["Dates", "Milk", "Oats", "Banana"],
+    "instructions": {
+      "ar": ["إزالة النوى", "خلط بالخلاط", "تبريد"],
+      "en": ["Remove pits", "Blend", "Chill"],
+      "tr": ["Çekirdekleri çıkar", "Karıştır", "Soğut"]
+    },
+    "prep_time": 5,
+    "calories": 350,
+    "protein_type": "Dairy",
+    "tags": ["drink", "energy", "dates"]
+  },
+  {
+    "id": "REC-010",
+    "slug": "beef-rendang",
+    "title": { "ar": "ريندانغ اللحم", "en": "Beef Rendang", "tr": "Etli Rendang" },
+    "category": { "ar": "طبق رئيسي", "en": "Main Dish", "tr": "Ana Yemek" },
+    "description": { "ar": "يخنة لحم إندونيسية (حلال) بحليب جوز الهند.", "en": "Indonesian dry curry with coconut milk.", "tr": "Hindistan cevizi sütü ile Endonezya köri." },
+    "ingredients": ["Beef", "Coconut Milk", "Lemongrass", "Galangal", "Chili"],
+    "instructions": {
+      "ar": ["طهي بطيء للحم", "تقليل الصلصة حتى تجف", "تحمير"],
+      "en": ["Slow cook meat", "Reduce sauce", "Sear"],
+      "tr": ["Eti yavaş pişir", "Sosu çektir", "Kızart"]
+    },
+    "prep_time": 120,
+    "calories": 600,
+    "protein_type": "Meat",
+    "tags": ["beef", "spicy", "asian"]
+  }
+]

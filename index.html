@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Plate | طبق رمضان</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        rGreen: '#064E3B', // Deep Ramadan Green
+                        rGold: '#D4AF37',  // Warm Gold
+                        rCream: '#FDFBF7', // Soft Cream
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth fade-in animation */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade { animation: fadeIn 0.4s ease-out forwards; }
+        /* Hide scrollbar for category list */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-rCream text-gray-800 transition-all duration-300 pb-20 font-cairo">
+
+    <header class="fixed top-0 w-full bg-rGreen text-white z-50 shadow-lg">
+        <div class="max-w-md mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🌙</span>
+                <h1 class="text-lg font-bold" id="appTitle">طبق رمضان</h1>
+            </div>
+            <button id="langBtn" onclick="toggleLang()" class="bg-white/10 px-3 py-1 rounded-full text-xs font-bold border border-rGold text-rGold hover:bg-white/20 transition">
+                EN
+            </button>
+        </div>
+        <div class="max-w-md mx-auto px-4 pb-4">
+            <div class="relative">
+                <input type="text" id="searchInput" oninput="handleSearch()" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white placeholder-white/60 focus:outline-none focus:border-rGold text-sm" placeholder="ابحث عن وصفة...">
+            </div>
+        </div>
+    </header>
+
+    <main id="mainContainer" class="pt-32 max-w-md mx-auto px-4 min-h-screen">
+        
+        <section id="fridgeSection" class="mb-6 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+            <h2 class="text-rGreen font-bold mb-2 text-sm flex items-center gap-2">
+                <span class="text-lg">🧊</span> <span id="fridgeTitle">ماذا في ثلاجتي؟</span>
+            </h2>
+            <div class="flex gap-2">
+                <input type="text" id="fridgeInput" class="flex-1 bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:border-rGreen outline-none" placeholder="طماطم, دجاج, أرز...">
+                <button onclick="runFridgeAlgo()" class="bg-rGreen text-white px-4 py-2 rounded-lg text-sm font-bold shadow hover:bg-opacity-90 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                </button>
+            </div>
+            <p class="text-xs text-gray-400 mt-1" id="fridgeHint">افصل المكونات بفواصل (،)</p>
+        </section>
+
+        <div id="recipeGrid" class="grid gap-4 pb-8">
+            <div class="text-center py-10 text-gray-400 animate-pulse">Loading Recipes...</div>
+        </div>
+    </main>
+
+    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-200 shadow-[0_-5px_15px_rgba(0,0,0,0.05)] z-40">
+        <div class="max-w-md mx-auto flex justify-around py-3">
+            <button onclick="resetView()" class="flex flex-col items-center text-rGreen">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                <span class="text-[10px] font-bold mt-1" id="navHome">الرئيسية</span>
+            </button>
+            <button onclick="showFavorites()" class="flex flex-col items-center text-gray-400 hover:text-rGold transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                <span class="text-[10px] font-bold mt-1" id="navFav">المفضلة</span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="recipeModal" class="fixed inset-0 bg-black/50 z-[60] hidden flex items-end sm:items-center justify-center backdrop-blur-sm transition-opacity">
+        <div class="bg-rCream w-full max-w-md h-[90vh] sm:h-[80vh] sm:rounded-2xl rounded-t-2xl overflow-hidden flex flex-col shadow-2xl transform transition-transform translate-y-full" id="modalContent">
+            <div class="bg-white p-4 flex justify-between items-center shadow-sm">
+                <button onclick="closeModal()" class="p-2 rounded-full hover:bg-gray-100">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <div class="flex gap-3">
+                    <button onclick="toggleWakeLock()" id="wakeLockBtn" class="text-gray-400 hover:text-rGold p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </button>
+                    <button id="modalFavBtn" class="text-gray-400 hover:text-red-500 p-2">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="overflow-y-auto flex-1 p-6" id="modalBody">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        // --- State Management ---
+        const state = {
+            recipes: [],
+            lang: localStorage.getItem('ramadan_lang') || 'ar',
+            favorites: JSON.parse(localStorage.getItem('ramadan_favs')) || [],
+            wakeLock: null
+        };
+
+        // --- Localization Dictionary ---
+        const translations = {
+            ar: { title: "طبق رمضان", search: "ابحث عن وصفة...", fridgeTitle: "ماذا في ثلاجتي؟", fridgeHint: "افصل المكونات بفواصل (،)", fridgePlace: "طماطم، دجاج، أرز...", home: "الرئيسية", fav: "المفضلة", prep: "دقيقة", cal: "سعرة", steps: "الخطوات", ing: "المكونات", cookingMode: "وضع الطبخ" },
+            en: { title: "Ramadan Plate", search: "Search recipes...", fridgeTitle: "What's in my Fridge?", fridgeHint: "Separate tags with comma (,)", fridgePlace: "Tomato, Chicken, Rice...", home: "Home", fav: "Favorites", prep: "min", cal: "kcal", steps: "Instructions", ing: "Ingredients", cookingMode: "Cooking Mode" },
+            tr: { title: "Ramazan Tabağı", search: "Tarif ara...", fridgeTitle: "Dolabımda ne var?", fridgeHint: "Malzemeleri virgül (,) ile ayırın", fridgePlace: "Domates, Tavuk, Pirinç...", home: "Anasayfa", fav: "Favoriler", prep: "dk", cal: "kcal", steps: "Talimatlar", ing: "Malzemeler", cookingMode: "Pişirme Modu" }
+        };
+
+        // --- Initialization ---
+        async function init() {
+            try {
+                // Fetch Data from JSON file
+                const response = await fetch('./recipes.json'); 
+                if (!response.ok) throw new Error("Failed to load recipes");
+                state.recipes = await response.json();
+                
+                applyLanguage(state.lang);
+                renderRecipes(state.recipes);
+            } catch (err) {
+                document.getElementById('recipeGrid').innerHTML = `<div class="text-red-500 text-center p-4">Error loading database: ${err.message}<br><small>Make sure recipes.json is in the same folder.</small></div>`;
+            }
+        }
+
+        // --- Language Logic ---
+        function toggleLang() {
+            const cycle = ['ar', 'en', 'tr'];
+            let nextIndex = (cycle.indexOf(state.lang) + 1) % 3;
+            state.lang = cycle[nextIndex];
+            localStorage.setItem('ramadan_lang', state.lang);
+            applyLanguage(state.lang);
+            renderRecipes(state.recipes); // Re-render to translate content
+        }
+
+        function applyLanguage(lang) {
+            const t = translations[lang];
+            const isRTL = lang === 'ar';
+            
+            document.documentElement.lang = lang;
+            document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+            document.body.style.fontFamily = isRTL ? 'Cairo, sans-serif' : 'Montserrat, sans-serif';
+            
+            // Update UI Static Text
+            document.getElementById('appTitle').innerText = t.title;
+            document.getElementById('searchInput').placeholder = t.search;
+            document.getElementById('fridgeTitle').innerText = t.fridgeTitle;
+            document.getElementById('fridgeInput').placeholder = t.fridgePlace;
+            document.getElementById('fridgeHint').innerText = t.fridgeHint;
+            document.getElementById('navHome').innerText = t.home;
+            document.getElementById('navFav').innerText = t.fav;
+            document.getElementById('langBtn').innerText = lang.toUpperCase();
+        }
+
+        // --- Rendering Logic ---
+        function renderRecipes(recipes) {
+            const grid = document.getElementById('recipeGrid');
+            grid.innerHTML = '';
+            
+            if (recipes.length === 0) {
+                grid.innerHTML = `<div class="text-center text-gray-400 py-10">${state.lang === 'ar' ? 'لا توجد نتائج' : 'No results found'}</div>`;
+                return;
+            }
+
+            recipes.forEach((r, index) => {
+                const title = r.title[state.lang];
+                const cat = r.category[state.lang];
+                const desc = r.description[state.lang];
+                // Check if match score exists (Fridge mode)
+                const matchBadge = r.matchScore ? 
+                    `<span class="absolute top-2 left-2 bg-rGreen text-white text-xs px-2 py-1 rounded-full shadow z-10 font-bold">${r.matchScore}% Match</span>` : '';
+
+                const card = `
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden cursor-pointer hover:shadow-md transition animate-fade relative" style="animation-delay: ${index * 0.05}s" onclick="openRecipe('${r.id}')">
+                    ${matchBadge}
+                    <div class="h-32 bg-gray-200 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 group-hover:scale-105 transition duration-500"></div>
+                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/60 to-transparent p-3">
+                            <span class="text-rGold text-xs font-bold uppercase tracking-wider">${cat}</span>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-gray-800 text-lg leading-tight">${title}</h3>
+                            <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">${r.calories} ${translations[state.lang].cal}</span>
+                        </div>
+                        <p class="text-gray-500 text-xs line-clamp-2 mb-3">${desc}</p>
+                        <div class="flex items-center gap-2 text-xs text-gray-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            ${r.prep_time} ${translations[state.lang].prep}
+                        </div>
+                    </div>
+                </div>`;
+                grid.innerHTML += card;
+            });
+        }
+
+        // --- Fridge Algorithm (Integration) ---
+        function runFridgeAlgo() {
+            const input = document.getElementById('fridgeInput').value;
+            if (!input.trim()) return resetView();
+
+            const userIngredients = input.split(/[,،]/).map(s => s.trim().toLowerCase()).filter(s => s);
+            
+            // Filter Logic: Tag overlap
+            const scored = state.recipes.map(recipe => {
+                const rTags = recipe.tags.map(t => t.toLowerCase()); // Using tags for matching
+                // Intersection
+                const matchCount = rTags.filter(tag => userIngredients.some(u => tag.includes(u) || u.includes(tag))).length;
+                const score = Math.round((matchCount / (rTags.length || 1)) * 100);
+                
+                // Boost score if ingredient match is found in recipe name too
+                const titleMatch = userIngredients.some(u => recipe.title.en.toLowerCase().includes(u));
+                const finalScore = titleMatch ? Math.min(100, score + 20) : score;
+
+                return { ...recipe, matchScore: finalScore };
+            });
+
+            // Filter >= 30% (Lowered from 70% for demo purposes with small seed data, usually 70%)
+            const results = scored.filter(r => r.matchScore > 0).sort((a, b) => b.matchScore - a.matchScore);
+            
+            renderRecipes(results);
+        }
+
+        function handleSearch() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            if (!q) { renderRecipes(state.recipes); return; }
+            
+            const filtered = state.recipes.filter(r => 
+                r.title[state.lang].toLowerCase().includes(q) || 
+                r.title['en'].toLowerCase().includes(q) // Always search EN as fallback
+            );
+            renderRecipes(filtered);
+        }
+
+        function showFavorites() {
+            const favIds = state.favorites;
+            const favRecipes = state.recipes.filter(r => favIds.includes(r.id));
+            renderRecipes(favRecipes);
+        }
+
+        function resetView() {
+            document.getElementById('fridgeInput').value = '';
+            document.getElementById('searchInput').value = '';
+            renderRecipes(state.recipes);
+        }
+
+        // --- Modal & Detail View ---
+        function openRecipe(id) {
+            const recipe = state.recipes.find(r => r.id === id);
+            if (!recipe) return;
+            
+            const t = translations[state.lang];
+            const isFav = state.favorites.includes(id);
+
+            // Populate Modal
+            const instructionsHTML = recipe.instructions[state.lang].map((step, i) => 
+                `<li class="flex gap-3 mb-3 group cursor-pointer" onclick="this.classList.toggle('opacity-50')">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-rGreen/10 text-rGreen font-bold flex items-center justify-center text-xs mt-0.5 group-hover:bg-rGreen group-hover:text-white transition">${i+1}</span>
+                    <span class="text-gray-700 text-sm leading-relaxed">${step}</span>
+                 </li>`
+            ).join('');
+
+            const ingredientsHTML = recipe.ingredients.map(ing => 
+                `<span class="bg-white border border-gray-200 rounded px-2 py-1 text-xs text-gray-600">${ing}</span>`
+            ).join('');
+
+            document.getElementById('modalBody').innerHTML = `
+                <h2 class="text-2xl font-bold text-rGreen mb-1">${recipe.title[state.lang]}</h2>
+                <div class="flex items-center gap-3 text-sm text-gray-500 mb-6">
+                    <span>${recipe.category[state.lang]}</span>
+                    <span>•</span>
+                    <span>${recipe.calories} ${t.cal}</span>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="font-bold text-gray-800 mb-3 border-b border-gray-200 pb-1">${t.ing}</h3>
+                    <div class="flex flex-wrap gap-2">${ingredientsHTML}</div>
+                </div>
+
+                <div class="mb-10">
+                    <h3 class="font-bold text-gray-800 mb-3 border-b border-gray-200 pb-1">${t.steps}</h3>
+                    <ul class="">${instructionsHTML}</ul>
+                </div>
+            `;
+
+            // Fav Button State
+            const favBtn = document.getElementById('modalFavBtn');
+            favBtn.onclick = () => toggleFavorite(id);
+            favBtn.classList.toggle('text-red-500', isFav);
+            favBtn.classList.toggle('text-gray-400', !isFav);
+
+            // Show Modal
+            const modal = document.getElementById('recipeModal');
+            const content = document.getElementById('modalContent');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('translate-y-full');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('recipeModal');
+            const content = document.getElementById('modalContent');
+            content.classList.add('translate-y-full');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+            
+            // Release Wake Lock
+            if (state.wakeLock) {
+                state.wakeLock.release().then(() => state.wakeLock = null);
+                document.getElementById('wakeLockBtn').classList.remove('text-rGold');
+                document.getElementById('wakeLockBtn').classList.add('text-gray-400');
+            }
+        }
+
+        function toggleFavorite(id) {
+            const index = state.favorites.indexOf(id);
+            if (index === -1) state.favorites.push(id);
+            else state.favorites.splice(index, 1);
+            
+            localStorage.setItem('ramadan_favs', JSON.stringify(state.favorites));
+            
+            // Update UI
+            const isFav = state.favorites.includes(id);
+            const favBtn = document.getElementById('modalFavBtn');
+            favBtn.classList.toggle('text-red-500', isFav);
+            favBtn.classList.toggle('text-gray-400', !isFav);
+        }
+
+        // --- Wake Lock API ---
+        async function toggleWakeLock() {
+            const btn = document.getElementById('wakeLockBtn');
+            if (!('wakeLock' in navigator)) {
+                alert("Browser does not support Wake Lock");
+                return;
+            }
+
+            if (state.wakeLock) {
+                await state.wakeLock.release();
+                state.wakeLock = null;
+                btn.classList.remove('text-rGold', 'animate-pulse');
+                btn.classList.add('text-gray-400');
+            } else {
+                try {
+                    state.wakeLock = await navigator.wakeLock.request('screen');
+                    btn.classList.remove('text-gray-400');
+                    btn.classList.add('text-rGold', 'animate-pulse');
+                } catch (err) {
+                    console.error(`${err.name}, ${err.message}`);
+                }
+            }
+        }
+
+        // Run
+        init();
+
+    </script>
+</body>
+</html>
