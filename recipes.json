@@ -1,25 +1,48 @@
-[
-{
+// --- قاعدة بيانات الشيف (النسخة الاحترافية الكاملة - مفصلة ومتعددة اللغات) ---
+        const embeddedRecipes = [
+          {
             "id": "REC-001",
             "slug": "mansaf-jordanian",
             "title": { "ar": "منسف أردني (الأصلي)", "en": "Authentic Jordanian Mansaf", "tr": "Orijinal Ürdün Mansafı" },
             "category": { "ar": "طبق رئيسي", "en": "Main Dish", "tr": "Ana Yemek" },
-            "description": { "ar": "تاج المائدة الأردنية. لحم بلدي مطبوخ بجميد كركي أصلي، يُقدم على خبز الشراك والأرز بالكركم.", "en": "The Jordanian national dish. Lamb cooked in fermented dried yogurt (Jameed), served over turmeric rice.", "tr": "Kurutulmuş yoğurt (Jameed) ile pişirilmiş kuzu eti, zerdeçallı pilav üzerinde servis edilir." },
-            "ingredients": [
-              "2 كيلو لحم خاروف (كتف أو موزات) بالعظم",
-              "1 رأس جميد كركي (منقوع ومهروس) أو 1 كيلو جميد سائل عالي الجودة",
-              "1 كيلو أرز تايجر (أو مصري) منقوع",
-              "خبز شراك (خبز صاج) - 3 أرغفة",
-              "سمن بلدي - 2 ملعقة كبيرة",
-              "لوز وصنوبر محمص للزينة",
-              "بهارات المنسف (كركم، حوائج المنسف) - اختياري",
-              "ورق غار وهيل لسلق اللحم"
-            ],
+            "description": { "ar": "الطبق الوطني للأردن، لحم بلدي مطبوخ بجميد كركي أصلي، يُقدم على خبز الشراك والأرز بالكركم.", "en": "The Jordanian national dish. Lamb cooked in fermented dried yogurt (Jameed), served over turmeric rice.", "tr": "Kurutulmuş yoğurt (Jameed) ile pişirilmiş kuzu eti, zerdeçallı pilav üzerinde servis edilir." },
+            "ingredients": {
+              "ar": [
+                "2 كيلو لحم خاروف (كتف أو موزات) بالعظم",
+                "1 رأس جميد كركي (منقوع ومهروس) أو 1 كيلو جميد سائل",
+                "1 كيلو أرز تايجر (أو مصري) منقوع",
+                "خبز شراك (خبز صاج) - 3 أرغفة",
+                "سمن بلدي - 2 ملعقة كبيرة",
+                "لوز وصنوبر محمص للزينة",
+                "بهارات المنسف (كركم، حوائج المنسف)",
+                "ورق غار وهيل لسلق اللحم"
+              ],
+              "en": [
+                "2 kg Lamb (Shoulder or Shanks) with bone",
+                "1 Jameed Stone (soaked & blended) or 1kg Liquid Jameed",
+                "1 kg Rice (Short grain), soaked",
+                "Shrak Bread (Saj Bread) - 3 loaves",
+                "Ghee (Clarified Butter) - 2 tbsp",
+                "Fried Almonds & Pine Nuts for garnish",
+                "Mansaf Spices (Turmeric)",
+                "Bay leaves & Cardamom for boiling"
+              ],
+              "tr": [
+                "2 kg Kuzu Eti (Kemikli)",
+                "1 Jameed Taşı (ıslatılmış) veya 1kg Sıvı Jameed",
+                "1 kg Pirinç (ıslatılmış)",
+                "Yufka Ekmeği (Shrak) - 3 adet",
+                "Sade Yağ (Ghee) - 2 yemek kaşığı",
+                "Kavrulmuş Badem ve Çam Fıstığı",
+                "Mansaf Baharatı (Zerdeçal)",
+                "Defne yaprağı & Kakule"
+              ]
+            },
             "instructions": {
               "ar": [
                 "تجهيز الجميد: يُنقع حجر الجميد ليلة كاملة ثم يُخفق بالخلاط وتصفيته للحصول على سائل ناعم كثيف.",
                 "سلق اللحم: يُسلق اللحم في ماء مغلي لمدة 15 دقيقة لإزالة الزفرة، ثم يُغسل اللحم ويُوضع في طنجرة نظيفة.",
-                "الطبخ: يُضاف سائل الجميد إلى اللحم. يُترك يغلي على نار هادئة (بدون غطاء في البداية) لمدة 1.5 - 2 ساعة حتى ينضج اللحم تماماً (يصبح طرياً جداً).",
+                "الطبخ: يُضاف سائل الجميد إلى اللحم. يُترك يغلي على نار هادئة (بدون غطاء) لمدة 1.5 - 2 ساعة حتى ينضج اللحم تماماً.",
                 "الأرز: في طنجرة منفصلة، نضع ملعقة سمن بلدي ونقلب الأرز مع رشة كركم وملح، ثم نضيف الماء المغلي ونتركه ينضج.",
                 "التقديم: نضع خبز الشراك في سدر كبير، نشربه بالقليل من لبن الجميد الساخن، نضع الأرز فوقه، ثم نرتب قطع اللحم، ونزين باللوز والصنوبر والبقدونس."
               ],
@@ -41,7 +64,7 @@
             "prep_time": 180,
             "calories": 1200,
             "protein_type": "Meat",
-            "tags": ["lamb", "yogurt", "rice", "banquet", "mansaf", "jameed"]
+            "tags": ["lamb", "yogurt", "rice", "banquet", "mansaf"]
           },
           {
             "id": "REC-002",
@@ -49,15 +72,35 @@
             "title": { "ar": "فتوش شامي بدبس الرمان", "en": "Levantine Fattoush Salad", "tr": "Narlı Fettuş Salatası" },
             "category": { "ar": "مقبلات", "en": "Appetizer", "tr": "Meze" },
             "description": { "ar": "سلطة الحديقة الصيفية مع الخبز المقلي المقرمش وصلصة السماق ودبس الرمان الحامضة.", "en": "Garden salad with crispy fried bread, sumac, and pomegranate molasses dressing.", "tr": "Kızarmış ekmek, sumak ve nar ekşisi soslu bahçe salatası." },
-            "ingredients": [
-              "2 رغيف خبز عربي (مقطع مربعات ومقلي أو محمص)",
-              "3 حبات خيار + 3 حبات طماطم (مفروم خشن)",
-              "1 باقة بقلة (رجلة) + 1 باقة نعناع أخضر",
-              "4 حبات فجل مقطع شرائح",
-              "بصل أخضر مفروم",
-              "الصوص: 3 ملاعق زيت زيتون + 2 ملعقة دبس رمان + عصير ليمونة",
-              "1 ملعقة كبيرة سماق بلدي"
-            ],
+            "ingredients": {
+              "ar": [
+                "2 رغيف خبز عربي (مقطع مربعات ومقلي)",
+                "3 حبات خيار + 3 حبات طماطم (مفروم خشن)",
+                "1 باقة بقلة (رجلة) + 1 باقة نعناع أخضر",
+                "4 حبات فجل مقطع شرائح",
+                "بصل أخضر مفروم",
+                "الصوص: 3 ملاعق زيت زيتون + 2 ملعقة دبس رمان + ليمون",
+                "1 ملعقة كبيرة سماق بلدي"
+              ],
+              "en": [
+                "2 Arabic Bread loaves (cubed & fried)",
+                "3 Cucumbers + 3 Tomatoes (chopped)",
+                "1 bunch Purslane + 1 bunch Mint",
+                "4 Radishes (sliced)",
+                "Green Onions (chopped)",
+                "Dressing: 3 tbsp Olive Oil + 2 tbsp Pomegranate Molasses + Lemon",
+                "1 tbsp Sumac"
+              ],
+              "tr": [
+                "2 Pide Ekmeği (kare kesilmiş & kızarmış)",
+                "3 Salatalık + 3 Domates (doğranmış)",
+                "1 demet Semizotu + 1 demet Nane",
+                "4 Turp (dilimlenmiş)",
+                "Yeşil Soğan",
+                "Sos: 3 yk Zeytinyağı + 2 yk Nar Ekşisi + Limon",
+                "1 yk Sumak"
+              ]
+            },
             "instructions": {
               "ar": [
                 "تجهيز الخبز: يُقلى الخبز في زيت غزير حتى يصبح ذهبياً، أو يُدهن بالزيت ويحمص بالفرن (أخف).",
@@ -81,7 +124,7 @@
             "prep_time": 20,
             "calories": 350,
             "protein_type": "Vegetarian",
-            "tags": ["salad", "vegan", "bread", "pomegranate", "fattoush"]
+            "tags": ["salad", "vegan", "bread", "pomegranate"]
           },
           {
             "id": "REC-003",
@@ -89,42 +132,59 @@
             "title": { "ar": "كنافة نابلسية (خشنة)", "en": "Kunafa Nabulsi (Rough)", "tr": "Peynirli Künefe" },
             "category": { "ar": "حلويات", "en": "Dessert", "tr": "Tatlı" },
             "description": { "ar": "أشهر حلويات الشرق. طبقة مقرمشة من عجينة الكنافة تغطي جبنة نابلسية ذائبة ومطاطية.", "en": "Crispy dough layered with stretchy Nabulsi cheese, soaked in syrup.", "tr": "Şerbetli, uzayan peynirli çıtır kadayıf tatlısı." },
-            "ingredients": [
-              "500 غم عجينة كنافة خشنة (طازجة)",
-              "400 غم جبنة نابلسية أو عكاوي (محلاة ومنقوعة لإزالة الملح)",
-              "1 كوب سمن حيواني مذاب (أفضل للنكهة)",
-              "صبغة كنافة (برتقالي) - رشة صغيرة",
-              "القطر: 2 كوب سكر + 1 كوب ماء + عصرة ليمون",
-              "فستق حلبي للزينة"
-            ],
+            "ingredients": {
+              "ar": [
+                "500 غم عجينة كنافة خشنة (طازجة)",
+                "400 غم جبنة نابلسية أو عكاوي (محلاة)",
+                "1 كوب سمن حيواني مذاب",
+                "صبغة كنافة (برتقالي) - رشة صغيرة",
+                "القطر: 2 كوب سكر + 1 كوب ماء + ليمون",
+                "فستق حلبي للزينة"
+              ],
+              "en": [
+                "500g Kunafa Dough (Rough)",
+                "400g Nabulsi or Akawi Cheese (desalted)",
+                "1 cup Ghee (melted)",
+                "Food Coloring (Orange) - pinch",
+                "Syrup: 2 cups Sugar + 1 cup Water + Lemon",
+                "Pistachios for garnish"
+              ],
+              "tr": [
+                "500g Kadayıf Hamuru",
+                "400g Peynir (tuzu alınmış)",
+                "1 bardak Sade Yağ (Ghee)",
+                "Gıda Boyası (Turuncu)",
+                "Şerbet: 2 bardak Şeker + 1 bardak Su + Limon",
+                "Antep Fıstığı"
+              ]
+            },
             "instructions": {
               "ar": [
                 "تحلية الجبن: يُنقع الجبن ويُغير ماؤه عدة مرات حتى يذهب الملح تماماً، ثم يُصفى ويُعصر جيداً.",
                 "فرك العجينة: تُقطع عجينة الكنافة وتُفرك بـ 3/4 كوب سمن وقليل من الصبغة حتى تتشرب.",
-                "الرص: في صينية (يفضل نحاس)، ندهن بقية السمن، نرص نصف العجينة ونضغط عليها بقوة بصينية أخرى.",
-                "الجبن: نوزع الجبن فوق العجينة (مع ترك 1 سم من الأطراف فارغاً).",
-                "الشوي: توضع على نار الغاز (مع التحريك المستمر للصينية) حتى تحمر الأطراف، أو في الفرن.",
-                "القلب والتقديم: تُقلب الصينية فوراً في طبق التقديم، ويُصب القطر الساخن عليها وهي ساخنة."
+                "الرص: في صينية، ندهن بقية السمن، نرص نصف العجينة ونضغط عليها بقوة. نوزع الجبن.",
+                "الشوي: توضع على نار الغاز (مع التحريك المستمر) حتى تحمر الأطراف. تقلب في طبق التقديم.",
+                "التقديم: يُصب القطر الساخن عليها وهي ساخنة."
               ],
               "en": [
                 "Cheese Prep: Soak cheese to remove salt completely. Drain and squeeze dry.",
                 "Dough: Mix dough with ghee and food coloring until coated.",
-                "Layering: Grease tray with ghee, press dough firmly into the bottom. Add cheese layer (leave edges clear).",
-                "Cooking: Cook on stove-top rotating constantly until edges are golden, or bake at 200°C.",
-                "Finish: Flip onto serving platter immediately. Pour hot syrup over it."
+                "Layering: Grease tray, press dough firmly. Add cheese layer.",
+                "Cooking: Cook on stove-top rotating constantly until edges are golden. Flip onto platter.",
+                "Finish: Pour hot syrup over it immediately."
               ],
               "tr": [
                 "Peynir: Peynirin tuzunu almak için suda bekletin, suyunu sıkın.",
-                "Hamur: Kadayıfı tereyağı ve renklendirici ile harmanlayın.",
+                "Hamur: Kadayıfı tereyağı ve boya ile harmanlayın.",
                 "Döşeme: Tepsiye hamuru bastırın, üzerine peyniri yayın.",
-                "Pişirme: Altı kızarana kadar ocakta çevirerek pişirin.",
-                "Servis: Ters çevirin ve sıcakken şerbeti dökün."
+                "Pişirme: Altı kızarana kadar ocakta çevirerek pişirin. Ters çevirin.",
+                "Servis: Sıcakken şerbeti dökün."
               ]
             },
             "prep_time": 50,
             "calories": 700,
             "protein_type": "Dairy",
-            "tags": ["sweet", "cheese", "pastry", "kunafa", "dessert"]
+            "tags": ["sweet", "cheese", "pastry", "kunafa"]
           },
           {
             "id": "REC-004",
@@ -132,21 +192,39 @@
             "title": { "ar": "شوربة عدس كريمية (طريقة المطاعم)", "en": "Restaurant-Style Lentil Soup", "tr": "Lokanta Usulü Mercimek Çorbası" },
             "category": { "ar": "شوربة", "en": "Soup", "tr": "Çorba" },
             "description": { "ar": "ليست مجرد عدس وماء. شوربة غنية بالنكهات، تُطحن لتصبح ناعمة كالكريمة.", "en": "Rich and creamy red lentil soup with aromatic vegetables and cumin.", "tr": "Sebzeli ve kimyonlu kremalı kırmızı mercimek çorbası." },
-            "ingredients": [
-              "2 كوب عدس أحمر مجروش (مغسول)",
-              "1 بصلة كبيرة + 1 حبة جزر + 1 حبة بطاطا (مكعبات)",
-              "6 أكواب مرق دجاج أو ماء",
-              "1 ملعقة صغيرة كمون + 1/2 ملعقة كركم",
-              "زيت زيتون",
-              "للتقديم: خبز محمص وليمون"
-            ],
+            "ingredients": {
+              "ar": [
+                "2 كوب عدس أحمر مجروش (مغسول)",
+                "1 بصلة كبيرة + 1 حبة جزر + 1 حبة بطاطا",
+                "6 أكواب مرق دجاج أو ماء",
+                "1 ملعقة صغيرة كمون + 1/2 ملعقة كركم",
+                "زيت زيتون",
+                "للتقديم: خبز محمص وليمون"
+              ],
+              "en": [
+                "2 cups Red Lentils (washed)",
+                "1 Onion + 1 Carrot + 1 Potato",
+                "6 cups Chicken Broth or Water",
+                "1 tsp Cumin + 1/2 tsp Turmeric",
+                "Olive Oil",
+                "To serve: Croutons & Lemon"
+              ],
+              "tr": [
+                "2 bardak Kırmızı Mercimek",
+                "1 Soğan + 1 Havuç + 1 Patates",
+                "6 bardak Tavuk Suyu veya Su",
+                "1 çay kaşığı Kimyon + Zerdeçal",
+                "Zeytinyağı",
+                "Servis için: Kıtır Ekmek & Limon"
+              ]
+            },
             "instructions": {
               "ar": [
                 "التقلية: في قدر، سخني الزيت وقلبي البصل والجزر والبطاطا لمدة 5 دقائق (هذا السر للنكهة).",
                 "العدس: أضيفي العدس المغسول وقلبي دقيقة، ثم أضيفي البهارات (الكمون والكركم).",
                 "الطهي: أضيفي المرق واتركيه يغلي ثم خففي النار لمدة 25 دقيقة حتى تذوب الخضار.",
                 "الطحن: ارفعي القدر عن النار واطحني الخليط بالخلاط اليدوي (Hand Blender) حتى يصبح ناعماً جداً.",
-                "اللمسة الأخيرة: أضيفي رشة ملح وليمون وقدميها ساخنة مع الخبز المحمص."
+                "اللمسة الأخيرة: أضيفي رشة ملح وليمون وقدميها ساخنة."
               ],
               "en": [
                 "Sauté: Sauté onion, carrot, and potato in oil for 5 mins (Key for flavor).",
@@ -164,7 +242,7 @@
             "prep_time": 35,
             "calories": 220,
             "protein_type": "Plant",
-            "tags": ["lentil", "soup", "vegan", "warm", "winter"]
+            "tags": ["lentil", "soup", "vegan", "warm"]
           },
           {
             "id": "REC-005",
@@ -172,35 +250,55 @@
             "title": { "ar": "بتر تشيكن (دجاج بالزبدة)", "en": "Deluxe Butter Chicken", "tr": "Tereyağlı Tavuk" },
             "category": { "ar": "طبق رئيسي", "en": "Main Dish", "tr": "Ana Yemek" },
             "description": { "ar": "قطع دجاج مشوية مغمورة في صوص طماطم كريمي غني بالكاجو والزبدة.", "en": "Grilled chicken chunks in a rich creamy tomato and cashew sauce.", "tr": "Kremalı domates ve kaju soslu ızgara tavuk." },
-            "ingredients": [
-              "1 كيلو صدور دجاج مكعبات",
-              "تتبيلة الدجاج: زبادي، ثوم، زنجبيل، غارام ماسالا، فلفل كشميري",
-              "الصوص: علبة طماطم مهروسة، معجون طماطم",
-              "1/2 كوب كريمة طبخ",
-              "2 ملعقة كبيرة زبدة + قليل من الزيت",
-              "2 ملعقة كبيرة معجون كاجو (اختياري للقوام)",
-              "كزبرة خضراء للتزيين"
-            ],
+            "ingredients": {
+              "ar": [
+                "1 كيلو صدور دجاج مكعبات",
+                "التتبيلة: زبادي، ثوم، زنجبيل، غارام ماسالا",
+                "الصوص: علبة طماطم مهروسة، معجون طماطم",
+                "1/2 كوب كريمة طبخ",
+                "2 ملعقة كبيرة زبدة",
+                "2 ملعقة كبيرة معجون كاجو (اختياري)",
+                "كزبرة خضراء للتزيين"
+              ],
+              "en": [
+                "1kg Chicken Breast (cubed)",
+                "Marinade: Yogurt, Garlic, Ginger, Garam Masala",
+                "Sauce: Tomato Puree, Tomato Paste",
+                "1/2 cup Cooking Cream",
+                "2 tbsp Butter",
+                "2 tbsp Cashew Paste (optional)",
+                "Cilantro for garnish"
+              ],
+              "tr": [
+                "1kg Tavuk Göğsü (küp)",
+                "Marine: Yoğurt, Sarımsak, Zencefil, Garam Masala",
+                "Sos: Domates Püresi, Salça",
+                "1/2 bardak Krema",
+                "2 yk Tereyağı",
+                "2 yk Kaju Ezmesi (isteğe bağlı)",
+                "Kişniş"
+              ]
+            },
             "instructions": {
               "ar": [
                 "التتبيل (مهم): انقع الدجاج في الزبادي والبهارات لمدة ساعتين على الأقل.",
                 "الشوي: اشوِ الدجاج في مقلاة ساخنة جداً حتى يأخذ لوناً (لا يحتاج نضج كامل). ارفعه جانباً.",
                 "الصوص: في نفس المقلاة، ضع الزبدة وشوح البصل والثوم، أضيف الطماطم والبهارات واتركها تتسبك.",
-                "الدمج: اطحن الصوص ليصبح ناعماً (اختياري)، أعده للنار، أضف الكريمة والدجاج المشوي.",
+                "الدمج: أضف الكريمة والدجاج المشوي للصوص.",
                 "النضج: اترك الخليط يغلي بهدوء 10 دقائق. زين بالكزبرة."
               ],
               "en": [
                 "Marinate: Mix chicken with yogurt, garlic, ginger, and spices. Rest for 2 hours.",
                 "Sear: Pan-sear chicken on high heat until charred. Set aside.",
-                "Sauce: Cook onions, garlic, and tomatoes with butter until soft. Blend if desired.",
-                "Combine: Add cream and chicken to the sauce. Simmer for 10 mins.",
-                "Serve: Garnish with cilantro."
+                "Sauce: Cook onions, garlic, and tomatoes with butter until soft.",
+                "Combine: Add cream and chicken to the sauce.",
+                "Serve: Simmer for 10 mins. Garnish with cilantro."
               ],
               "tr": [
                 "Marine: Tavuğu yoğurt ve baharatlarla 2 saat bekletin.",
                 "Mühürleme: Tavuğu yüksek ateşte kızartıp kenara alın.",
-                "Sos: Domates, soğan ve tereyağını pişirin. Kremayı ekleyin.",
-                "Birleştirme: Tavuğu sosa ekleyip 10 dk pişirin."
+                "Sos: Domates, soğan ve tereyağını pişirin.",
+                "Birleştirme: Kremayı ve tavuğu sosa ekleyip 10 dk pişirin."
               ]
             },
             "prep_time": 60,
@@ -214,34 +312,59 @@
             "title": { "ar": "فول مدمس (خلطة السحور)", "en": "Special Suhoor Foul", "tr": "Özel Sahur Baklası" },
             "category": { "ar": "سحور", "en": "Suhoor", "tr": "Sahur" },
             "description": { "ar": "أفضل وجبة للسحور لضمان الشبع. فول مدمس بخلطة الدقة الحارة والطحينة.", "en": "Slow-digesting fava beans with tahini, garlic, and olive oil.", "tr": "Tahin, sarımsak ve zeytinyağlı bakla ezmesi." },
-            "ingredients": [
-              "2 كوب فول مدمس مسلوق (حبوب)",
-              "الدقة: 2 فص ثوم مهروس + فلفل حار + عصير ليمون + كمون",
-              "1/4 كوب طحينة سائلة",
-              "زيت زيتون بكر",
-              "طماطم وبقدونس مفروم للوجه"
-            ],
-            "instructions": {
+            "ingredients": {
               "ar": [
-                "التسخين: ضع الفول مع قليل من مائه في قدر وسخنه جيداً.",
-                "الهرس: اهرس نصف كمية الفول بالشوكة واترك الباقي حبوباً (لقوام مثالي).",
-                "التتبيل: اخلط الثوم والليمون والكمون والطحينة، ثم صب الخليط على الفول وقلب.",
-                "التقديم: ضعه في صحن عميق، أغرقه بزيت الزيتون، وزين بالطماطم والبقدونس. يُؤكل بالخبز."
+                "2 علبة فول مدمس (أو 3 أكواب مسلوق)",
+                "الدقة: 3 فصوص ثوم مهروس + 1 فلفل أخضر حار",
+                "عصير 2 ليمونة",
+                "1/4 كوب طحينة سائلة (راشي)",
+                "1 ملعقة صغيرة كمون + ملح",
+                "زيت زيتون بكر (للوجه)",
+                "طماطم مفرومة وبقدونس للتزيين"
               ],
               "en": [
-                "Heat: Warm the beans with a little water.",
-                "Mash: Mash half the beans, keeping some whole for texture.",
-                "Season: Mix garlic, lemon, cumin, and tahini. Stir into beans.",
-                "Serve: Top generously with olive oil, tomatoes, and parsley."
+                "2 Cans Fava Beans (cooked)",
+                "Daqqa: 3 Garlic cloves + 1 Green Chili",
+                "Juice of 2 Lemons",
+                "1/4 cup Tahini",
+                "1 tsp Cumin + Salt",
+                "Virgin Olive Oil (generous amount)",
+                "Chopped Tomato & Parsley"
               ],
               "tr": [
-                "Isıtma: Baklayı ısıtın.",
-                "Ezme: Yarısını ezin, yarısını tane bırakın.",
-                "Sos: Sarımsak, limon, tahin ekleyin.",
-                "Servis: Bol zeytinyağı ve domates ile servis yapın."
+                "2 Kutu Bakla",
+                "Sos: 3 Sarımsak + 1 Yeşil Biber",
+                "2 Limonun Suyu",
+                "1/4 bardak Tahin",
+                "1 çay kaşığı Kimyon + Tuz",
+                "Sızma Zeytinyağı",
+                "Domates & Maydanoz"
               ]
             },
-            "prep_time": 10,
+            "instructions": {
+              "ar": [
+                "التسخين: ضع الفول مع قليل من مائه في قدر وسخنه جيداً حتى الغليان.",
+                "الهرس: اهرس نصف كمية الفول بالشوكة واترك الباقي حبوباً صحيحة (هذا يعطي أفضل قوام).",
+                "الدقة: في هاون، اهرس الثوم والفلفل. في وعاء جانبي، اخلط الطحينة مع الليمون والدقة والكمون وقليل من الماء حتى يصبح لونها أبيض.",
+                "الدمج: صب خليط الطحينة فوق الفول الساخن وقلب جيداً.",
+                "التقديم: اسكب الفول في صحن، أغرقه بزيت الزيتون، وزين بالطماطم والبقدونس. يقدم مع الخبز الساخن."
+              ],
+              "en": [
+                "Heat: Warm the beans with a little water in a pot.",
+                "Mash: Mash half the beans, keeping the rest whole for texture.",
+                "Sauce: Mix crushed garlic, chili, lemon, tahini, and cumin until creamy.",
+                "Combine: Pour the tahini sauce over the hot beans and stir.",
+                "Serve: Transfer to a bowl, top generously with olive oil, tomatoes, and parsley."
+              ],
+              "tr": [
+                "Isıtma: Baklayı biraz suyla ısıtın.",
+                "Ezme: Baklaların yarısını ezin, yarısını tane bırakın.",
+                "Sos: Sarımsak, limon, tahin ve kimyonu karıştırın.",
+                "Birleştirme: Sosu sıcak baklaya ekleyip karıştırın.",
+                "Servis: Zeytinyağı, domates ve maydanoz ile servis yapın."
+              ]
+            },
+            "prep_time": 15,
             "calories": 320,
             "protein_type": "Plant",
             "tags": ["beans", "breakfast", "suhoor", "vegan"]
@@ -252,30 +375,50 @@
             "title": { "ar": "شراب قمر الدين المركز", "en": "Rich Qamar al-Din", "tr": "Kayısı Şerbeti" },
             "category": { "ar": "مشروبات", "en": "Drink", "tr": "İçecek" },
             "description": { "ar": "إكسير رمضان. مشروب مركز من رقائق المشمش الطبيعية لتعويض السكر بعد الصيام.", "en": "Concentrated apricot nectar, essential for breaking the fast.", "tr": "Oruç açmak için yoğun kayısı nektarı." },
-            "ingredients": [
-              "1 باكيت قمر الدين (400 غم)",
-              "6 أكواب ماء ساخن",
-              "1/2 كوب سكر (أو حسب الرغبة)",
-              "1 ملعقة صغيرة ماء زهر"
-            ],
-            "instructions": {
+            "ingredients": {
               "ar": [
-                "التقطيع: قطع شريحة قمر الدين إلى قطع صغيرة باستخدام مقص المطبخ.",
-                "النقع: انقع القطع في الماء الساخن لمدة ساعتين (أو ليلة كاملة) مع التحريك كل فترة حتى تذوب.",
-                "الخلط: ضع الخليط في الخلاط الكهربائي مع السكر واخلط جيداً.",
-                "التبريد: أضف ماء الزهر، ضعه في الثلاجة ليبرد تماماً. يُقدم مع الثلج."
+                "1 باكيت قمر الدين (400 غم) - نوعية فاخرة",
+                "6 أكواب ماء ساخن",
+                "1/2 كوب سكر (أو حسب الرغبة)",
+                "1 ملعقة صغيرة ماء زهر",
+                "للزينة: صنوبر منقوع (اختياري)"
               ],
               "en": [
-                "Cut: Cut the apricot paste sheet into small pieces.",
-                "Soak: Soak in hot water for 2+ hours until dissolved.",
-                "Blend: Blend with sugar until smooth.",
-                "Chill: Add rose water and refrigerate. Serve cold."
+                "1 Pack Qamar al-Din Paste (400g)",
+                "6 cups Hot Water",
+                "1/2 cup Sugar (adjust to taste)",
+                "1 tsp Rose Water",
+                "Pine nuts (soaked) for garnish"
               ],
               "tr": [
-                "Kesme: Kayısı ezmesini küçük parçalara kesin.",
-                "Islatma: Suda eriyene kadar bekletin.",
-                "Karıştırma: Şekerle blenderdan geçirin.",
-                "Soğutma: Gül suyu ekleyip soğutun."
+                "1 Paket Kayısı Pestili (400g)",
+                "6 bardak Sıcak Su",
+                "1/2 bardak Şeker",
+                "1 tatlı kaşığı Gül Suyu",
+                "Çam fıstığı (süslemek için)"
+              ]
+            },
+            "instructions": {
+              "ar": [
+                "التقطيع: قطع شريحة قمر الدين إلى قطع صغيرة جداً باستخدام مقص المطبخ.",
+                "النقع (خطوة أساسية): ضع القطع في وعاء عميق وصب فوقها الماء المغلي. غطها واتركها لمدة ساعتين على الأقل (أو ليلة كاملة) حتى تذوب.",
+                "الخلط: ضع المنقوع في الخلاط الكهربائي، أضف السكر، واخلط جيداً حتى يختفي أي تكتل.",
+                "التبريد: صفي العصير (اختياري)، أضف ماء الزهر، وضعه في الثلاجة ليبرد تماماً.",
+                "التقديم: يقدم بارداً جداً مع مكعبات الثلج، ويمكن إضافة الصنوبر المنقوع في الكوب."
+              ],
+              "en": [
+                "Cut: Cut the apricot paste sheet into small snippets using kitchen scissors.",
+                "Soak: Cover pieces with hot water. Soak for 2+ hours (or overnight) until dissolved.",
+                "Blend: Pour into a blender, add sugar, and blend until smooth.",
+                "Chill: Add rose water and refrigerate until very cold.",
+                "Serve: Serve over ice."
+              ],
+              "tr": [
+                "Kesme: Pestili küçük parçalar halinde kesin.",
+                "Islatma: Sıcak suda en az 2 saat (veya bir gece) eriyene kadar bekletin.",
+                "Karıştırma: Şekerle birlikte blenderdan geçirin.",
+                "Soğutma: Gül suyu ekleyip buzdolabında soğutun.",
+                "Servis: Buzlu servis yapın."
               ]
             },
             "prep_time": 120,
@@ -289,32 +432,53 @@
             "title": { "ar": "سمبوسك لحم مقرمش", "en": "Crispy Meat Sambousek", "tr": "Kıymalı Börek" },
             "category": { "ar": "مقبلات", "en": "Appetizer", "tr": "Meze" },
             "description": { "ar": "عجينة منزلية هشة محشوة بخلطة لحم مفروم وصنوبر.", "en": "Homemade flaky dough filled with spiced minced meat and pine nuts.", "tr": "Kıyma ve çam fıstığı dolgulu çıtır hamur." },
-            "ingredients": [
-              "العجينة: 3 كوب طحين + 1/2 كوب زيت + رشة ملح + ماء دافئ",
-              "الحشوة: 500 غم لحم مفروم ناعم",
-              "2 بصلة مفرومة ناعم",
-              "بهارات مشكلة + سماق",
-              "صنوبر محمص",
-              "زيت للقلي"
-            ],
-            "instructions": {
+            "ingredients": {
               "ar": [
-                "الحشوة: قلي البصل حتى يذبل، أضيفي اللحم والبهارات وقلبي حتى ينضج تماماً ويجف ماؤه. أضيفي الصنوبر واتركيه يبرد.",
-                "العجينة: اعجني مكونات العجينة جيداً واتركيها ترتاح 30 دقيقة.",
-                "الشكيل: افردي العجينة، قطعيها دوائر، ضعي ملعقة حشوة، وأغلقيها جيداً (ضفري الأطراف).",
-                "القلي: اقليها في زيت غزير ساخن حتى تصبح ذهبية ومقرمشة."
+                "العجينة: 3 أكواب طحين",
+                "1/2 كوب زيت نباتي + 1 كوب ماء دافئ + رشة ملح",
+                "الحشوة: 500 غم لحم مفروم ناعم (عجل أو خاروف)",
+                "2 بصلة كبيرة مفرومة ناعم",
+                "بهارات: قرفة، بهار حلو، سماق، ملح، فلفل أسود",
+                "1/4 كوب صنوبر محمص",
+                "زيت للقلي"
               ],
               "en": [
-                "Filling: Cook onion and meat with spices until dry. Stir in pine nuts. Cool down.",
-                "Dough: Knead flour, oil, and water. Rest for 30 mins.",
-                "Shape: Roll out, cut circles, fill, and seal edges tightly.",
-                "Fry: Deep fry in hot oil until golden."
+                "Dough: 3 cups Flour",
+                "1/2 cup Oil + 1 cup Warm Water + Salt",
+                "Filling: 500g Minced Meat (Beef/Lamb)",
+                "2 Onions (finely chopped)",
+                "Spices: Cinnamon, Allspice, Sumac, Salt, Pepper",
+                "1/4 cup Fried Pine Nuts",
+                "Oil for frying"
               ],
               "tr": [
-                "İç Harç: Soğan ve kıymayı kavurun. Soğutun.",
-                "Hamur: Malzemeleri yoğurun, dinlendirin.",
-                "Şekil: Açın, doldurun ve kapatın.",
-                "Kızartma: Altın rengi olana kadar kızartın."
+                "Hamur: 3 bardak Un",
+                "1/2 bardak Sıvı Yağ + 1 bardak Su + Tuz",
+                "İç Harç: 500g Kıyma",
+                "2 Soğan (doğranmış)",
+                "Baharat: Tarçın, Yenibahar, Sumak, Tuz, Karabiber",
+                "Çam fıstığı",
+                "Kızartma Yağı"
+              ]
+            },
+            "instructions": {
+              "ar": [
+                "تجهيز الحشوة: في مقلاة، قلب البصل حتى يذبل، أضف اللحم والبهارات وقلب حتى ينضج تماماً ويجف ماؤه (مهم جداً أن تكون الحشوة ناشفة). أطفئ النار وأضف الصنوبر والسماق.",
+                "العجينة: في وعاء، اخلط الطحين والملح والزيت، ثم أضف الماء تدريجياً واعجن حتى تحصل على عجينة ملساء. غطها واتركها ترتاح 30 دقيقة.",
+                "الشكيل: افرد العجينة بسمك رقيق، قطعها دوائر، ضع ملعقة حشوة في الوسط، وأغلقها بإحكام (يمكن ضفر الأطراف أو استخدام شوكة).",
+                "القلي: اقلي السمبوسك في زيت غزير ساخن حتى تصبح ذهبية ومقرمشة. قدمها ساخنة."
+              ],
+              "en": [
+                "Filling: Sauté onion, add meat and spices. Cook until dry (crucial). Stir in pine nuts and sumac. Cool down.",
+                "Dough: Knead flour, oil, salt, and water until smooth. Rest for 30 mins.",
+                "Shape: Roll dough thin, cut circles, fill, and seal edges tightly (crimp with fork).",
+                "Fry: Deep fry in hot oil until golden brown."
+              ],
+              "tr": [
+                "İç Harç: Soğan ve kıymayı kavurun. Suyunu çekince baharat ve fıstıkları ekleyin. Soğutun.",
+                "Hamur: Malzemeleri yoğurun, 30 dk dinlendirin.",
+                "Şekil: Hamuru açın, yuvarlak kesin, doldurun ve kapatın.",
+                "Kızartma: Kızgın yağda altın rengi olana kadar kızartın."
               ]
             },
             "prep_time": 60,
@@ -325,35 +489,59 @@
           {
             "id": "REC-009",
             "slug": "maqluba",
-            "title": { "ar": "مقلوبة الباذنجان", "en": "Eggplant Maqluba", "tr": "Patlıcanlı Maklube" },
+            "title": { "ar": "مقلوبة الباذنجان والزهرة", "en": "Eggplant & Cauliflower Maqluba", "tr": "Patlıcanlı Maklube" },
             "category": { "ar": "طبق رئيسي", "en": "Main Dish", "tr": "Ana Yemek" },
-            "description": { "ar": "طبقات من الأرز والباذنجان المقلي واللحم، تقلب رأساً على عقب عند التقديم.", "en": "Upside-down rice cake with layers of fried eggplant and meat.", "tr": "Patlıcan, et ve pirinçten oluşan ters çevrilmiş pilav." },
-            "ingredients": [
-              "1 كيلو لحم موزات أو دجاج",
-              "2 حبة باذنجان كبيرة (شرائح مقلية)",
-              "1 حبة زهرة (قرنبيط) مقلية - اختياري",
-              "3 أكواب أرز مصري (قصير الحبة)",
-              "بهارات المقلوبة (قرفة، هيل، بهار حلو)",
-              "شرائح طماطم لقاع الطنجرة"
-            ],
-            "instructions": {
+            "description": { "ar": "طبقات من الأرز والباذنجان المقلي واللحم، تقلب رأساً على عقب عند التقديم لتشكل قالب كيك.", "en": "Upside-down rice cake with layers of fried eggplant, cauliflower, and meat.", "tr": "Patlıcan, karnabahar, et ve pirinçten oluşan ters çevrilmiş pilav." },
+            "ingredients": {
               "ar": [
-                "التجهيز: اقلي الباذنجان والزهرة ورشي عليها الملح. اسلقي اللحم واحتفظي بالمرق.",
-                "التطبيق: في قدر غير لاصق، رتبي شرائح الطماطم في القاع، ثم الباذنجان واللحم، ثم الأرز المنقوع والمتبل.",
-                "الطبخ: صبي مرق اللحم الساخن ببطء فوق الأرز (ارتفاع 1 سم فوق الأرز). غطي القدر واطبخي على نار هادئة جداً.",
-                "القلب: بعد النضج، اتركي القدر يرتاح 10 دقائق، ثم ضعي صينية كبيرة فوقه واقلبيه بحركة واحدة جريئة."
+                "1 كيلو لحم قطع (أو دجاج)",
+                "2 حبة باذنجان كبيرة (شرائح سميكة)",
+                "1 رأس زهرة (قرنبيط) مقطع",
+                "3 أكواب أرز مصري (قصير الحبة) منقوع",
+                "بهارات المقلوبة: قرفة، هيل، بهار حلو، كركم، فلفل أسود",
+                "شرائح طماطم (لتغطية قاع القدر)",
+                "مكسرات للزينة"
               ],
               "en": [
-                "Prep: Fry eggplant. Boil meat and keep broth.",
-                "Layer: In a pot, layer tomatoes, fried veggies, meat, then spiced rice.",
-                "Cook: Pour hot broth over rice. Simmer on low heat until absorbed.",
-                "Flip: Rest for 10 mins, then flip upside down onto a large tray."
+                "1 kg Lamb or Chicken pieces",
+                "2 Large Eggplants (thick slices)",
+                "1 Cauliflower head (florets)",
+                "3 cups Short Grain Rice (soaked)",
+                "Maqluba Spices: Cinnamon, Cardamom, Allspice, Turmeric, Pepper",
+                "Tomato Slices (for the pot bottom)",
+                "Nuts for garnish"
               ],
               "tr": [
-                "Hazırlık: Sebzeleri kızartın. Eti haşlayın.",
-                "Dizme: Tencereye domates, sebze, et ve pirinci dizin.",
-                "Pişirme: Et suyunu ekleyip demleyin.",
-                "Çevirme: Ters çevirip servis yapın."
+                "1 kg Et veya Tavuk",
+                "2 Büyük Patlıcan",
+                "1 Karnabahar",
+                "3 bardak Pirinç (ıslatılmış)",
+                "Maklube Baharatı: Tarçın, Kakule, Yenibahar, Zerdeçal",
+                "Domates Dilimleri",
+                "Kuruyemiş"
+              ]
+            },
+            "instructions": {
+              "ar": [
+                "التجهيز: رش الملح على الباذنجان واقليه حتى يتحمر. اقلي الزهرة أيضاً. اسلق اللحم مع المطيبات واحتفظ بالمرق.",
+                "تتبيل الأرز: صفي الأرز واخلطه مع بهارات المقلوبة والملح وملعقة زيت.",
+                "التطبيق: في قدر غير لاصق، رتب شرائح الطماطم في القاع (لمنع الالتصاق)، ثم وزع الباذنجان والزهرة واللحم، وأخيراً ضع الأرز فوقهم.",
+                "الطبخ: صب مرق اللحم الساخن ببطء شديد فوق الأرز (حتى يغمره بمقدار 1 سم). غط القدر واطبخ على نار هادئة جداً لمدة 30-40 دقيقة.",
+                "القلب (اللحظة الحاسمة): اترك القدر يرتاح 15 دقيقة بعد النضج. ضع صينية كبيرة (سدر) فوق القدر، وبحركة سريعة اقلب القدر. ارفع القدر ببطء."
+              ],
+              "en": [
+                "Prep: Fry eggplant and cauliflower. Boil meat until tender (save the broth).",
+                "Rice: Mix soaked rice with Maqluba spices and salt.",
+                "Layer: In a pot, place tomato slices at the bottom, then fried veggies and meat. Top with rice.",
+                "Cook: Gently pour hot broth over rice (1cm above rice). Simmer on low heat for 40 mins.",
+                "Flip: Let rest for 15 mins. Place a large tray on top and flip the pot upside down. Lift pot gently."
+              ],
+              "tr": [
+                "Hazırlık: Sebzeleri kızartın. Eti haşlayın (suyunu saklayın).",
+                "Pirinç: Pirinci baharatlarla karıştırın.",
+                "Dizme: Tencerenin dibine domates, sonra sebze ve eti dizin. En üste pirinci ekleyin.",
+                "Pişirme: Et suyunu yavaşça ekleyin. Kısık ateşte 40 dk pişirin.",
+                "Çevirme: 15 dk dinlendirin. Tepsiye ters çevirin."
               ]
             },
             "prep_time": 120,
@@ -366,32 +554,54 @@
             "slug": "sahlab-hot",
             "title": { "ar": "سحلب ساخن بالمكسرات", "en": "Hot Sahlab Pudding", "tr": "Sıcak Salep" },
             "category": { "ar": "مشروبات", "en": "Drink", "tr": "İçecek" },
-            "description": { "ar": "مشروب شتوي دافئ وكثيف القوام، يُزين بالقرفة وجوز الهند.", "en": "Thick, warm milk pudding drink flavored with mastic and rose water.", "tr": "Tarçınlı sıcak sütlü içecek." },
-            "ingredients": [
-              "4 أكواب حليب سائل",
-              "2 ملعقة كبيرة نشا الذرة",
-              "3 ملاعق كبيرة سكر",
-              "رشة مستكة مطحونة (سر الطعم)",
-              "1 ملعقة صغيرة ماء زهر",
-              "للزينة: قرفة ناعمة، جوز هند، جوز"
-            ],
-            "instructions": {
+            "description": { "ar": "مشروب شتوي دافئ وكثيف القوام، يُزين بالقرفة وجوز الهند. يعطي طاقة ودفء.", "en": "Thick, warm milk pudding drink flavored with mastic and rose water.", "tr": "Tarçınlı ve damla sakızlı sıcak sütlü içecek." },
+            "ingredients": {
               "ar": [
-                "الخلط: ذوبي النشا مع الحليب البارد والسكر والمستكة في قدر.",
-                "الطهي: ضعي القدر على نار متوسطة مع التحريك المستمر (لا تتوقفي) حتى يغلي ويصبح كثيفاً.",
-                "النكهة: أطفئي النار وأضيفي ماء الزهر.",
-                "التقديم: صبيه في أكواب ورشي القرفة والمكسرات فوراً."
+                "4 أكواب حليب سائل كامل الدسم",
+                "2 ملعقة كبيرة نشا الذرة (ممسوحة)",
+                "3 ملاعق كبيرة سكر (أو حسب الرغبة)",
+                "2 فص مستكة مطحونة مع قليل من السكر (سر الطعم)",
+                "1 ملعقة صغيرة ماء زهر",
+                "للزينة: قرفة ناعمة، جوز هند، جوز، فستق حلبي"
               ],
               "en": [
-                "Mix: Dissolve cornstarch and sugar in cold milk.",
-                "Cook: Stir constantly over medium heat until thickened.",
-                "Flavor: Remove from heat, add rose water.",
-                "Serve: Pour into cups, dust with cinnamon and nuts."
+                "4 cups Whole Milk",
+                "2 tbsp Cornstarch",
+                "3 tbsp Sugar",
+                "2 grains Mastic (ground with sugar)",
+                "1 tsp Rose Water",
+                "Garnish: Cinnamon, Coconut, Walnuts"
               ],
               "tr": [
-                "Karıştırma: Nişasta ve şekeri soğuk sütte eritin.",
-                "Pişirme: Koyulaşana kadar karıştırarak pişirin.",
-                "Servis: Tarçın serpip sıcak servis yapın."
+                "4 bardak Süt",
+                "2 yk Nişasta",
+                "3 yk Şeker",
+                "Damla Sakızı (dövülmüş)",
+                "1 tk Gül Suyu",
+                "Süsleme: Tarçın, Hindistan Cevizi, Ceviz"
+              ]
+            },
+            "instructions": {
+              "ar": [
+                "الخلط على البارد: في قدر، ذوبي النشا مع الحليب البارد والسكر والمستكة جيداً قبل وضعه على النار (لتجنب التكتل).",
+                "الطهي: ضعي القدر على نار متوسطة مع التحريك المستمر (لا تتوقفي عن التحريك) باستخدام ملعقة خشبية.",
+                "الغليان: استمري بالتحريك حتى يغلي الخليط ويصبح قوامه كثيفاً نوعاً ما.",
+                "النكهة: أطفئي النار وأضيفي ماء الزهر فوراً.",
+                "التقديم: صبيه في أكواب، ورشي وجهه بالقرفة وجوز الهند والمكسرات. يقدم ساخناً."
+              ],
+              "en": [
+                "Mix Cold: Dissolve cornstarch, sugar, and mastic in cold milk inside the pot.",
+                "Cook: Place on medium heat. Stir constantly to prevent lumps.",
+                "Thicken: Keep stirring until it boils and thickens.",
+                "Flavor: Turn off heat, stir in rose water.",
+                "Serve: Pour into mugs, sprinkle generously with cinnamon and nuts."
+              ],
+              "tr": [
+                "Soğuk Karıştırma: Nişasta, şeker ve sakızı soğuk sütte eritin.",
+                "Pişirme: Orta ateşte sürekli karıştırarak pişirin.",
+                "Kıvam: Kaynayıp koyulaşana kadar karıştırın.",
+                "Aroma: Ocaktan alıp gül suyunu ekleyin.",
+                "Servis: Fincanlara dökün, tarçın ve kuruyemişle süsleyin."
               ]
             },
             "prep_time": 15,
