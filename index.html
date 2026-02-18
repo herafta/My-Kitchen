@@ -27275,11 +27275,12 @@
         }
 
         function sendToGeminiResearch(title) {
+            // 1. تجهيز النص
             const prompt = state.lang === 'ar'
                 ? `أريد بحثاً مفصلاً عن وصفة "${title}" يشمل: المقادير الدقيقة، طريقة التحضير، السعرات الحرارية، وبدائل صحية.`
                 : `Detailed recipe research for "${title}": Ingredients, Instructions, Calories, and Healthy alternatives.`;
 
-            // 1. نسخ النص (آمن وموثوق)
+            // 2. نسخ النص (طريقة متوافقة 100% مع الجوال)
             const textArea = document.createElement("textarea");
             textArea.value = prompt;
             textArea.style.position = "fixed";
@@ -27292,41 +27293,47 @@
             } catch (e) { console.error(e); }
             document.body.removeChild(textArea);
 
-            // 2. إظهار "بطاقة الانتقال للتطبيق" (هذا هو الحل لفتح التطبيق)
-            // إنشاء واجهة تطلب من المستخدم الضغط بنفسه، لأن الجوالات تثق بلمسة المستخدم أكثر من الكود
-            const modalId = 'gemini-app-modal';
-            // حذف أي نافذة سابقة إن وجدت
+            // 3. إظهار نافذة "الانتقال" (بدون إغلاق تلقائي سريع لتجنب إلغاء النقر)
+            const modalId = 'gemini-link-modal';
             const existing = document.getElementById(modalId);
             if(existing) existing.remove();
 
-            const modalHTML = `
-                <div id="${modalId}" class="fixed inset-0 z-[100] flex items-end justify-center sm:items-center bg-black/60 backdrop-blur-sm animate-fade">
-                    <div class="bg-white w-full max-w-sm sm:rounded-2xl rounded-t-2xl p-6 shadow-2xl transform transition-all translate-y-0">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
-                                <span class="text-2xl">📱</span>
-                                ${state.lang === 'ar' ? 'الانتقال إلى التطبيق' : 'Open in App'}
-                            </h3>
-                            <button onclick="document.getElementById('${modalId}').remove()" class="text-gray-400 hover:text-red-500 bg-gray-100 p-2 rounded-full">✕</button>
-                        </div>
-                        
-                        <div class="bg-green-50 border border-green-200 rounded-xl p-4 mb-6">
-                            <p class="text-sm text-green-800 font-bold flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                ${state.lang === 'ar' ? 'تم نسخ السؤال تلقائياً!' : 'Question copied automatically!'}
-                            </p>
-                            <p class="text-xs text-green-600 mt-1">
-                                ${state.lang === 'ar' ? 'فقط اضغط الزر بالأسفل لفتح التطبيق ثم اختر "لصق".' : 'Tap below to open the App, then Paste.'}
-                            </p>
-                        </div>
+            // رابط Gemini الرسمي (هذا الرابط هو الوحيد الذي يدعم فتح التطبيق إذا كان مثبتاً)
+            // إذا كان لديك تطبيق Google أو Gemini مثبتين، سيقترح عليك الهاتف فتحهما
+            const targetUrl = "https://gemini.google.com/app";
 
-                        <a href="https://gemini.google.com/app" target="_blank" onclick="document.getElementById('${modalId}').remove()" class="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white text-center font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
-                            ${state.lang === 'ar' ? '🚀 فتح تطبيق Gemini' : '🚀 Open Gemini App'}
-                        </a>
-                        
-                        <p class="text-[10px] text-gray-400 text-center mt-4">
-                            ${state.lang === 'ar' ? 'إذا لم يكن التطبيق مثبتاً سيفتح في المتصفح' : 'Will open in browser if App is not installed'}
-                        </p>
+            const modalHTML = `
+                <div id="${modalId}" class="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center bg-black/80 backdrop-blur-sm animate-fade">
+                    <div class="bg-white w-full max-w-sm p-6 rounded-t-2xl sm:rounded-2xl shadow-2xl relative">
+                        <button onclick="document.getElementById('${modalId}').remove()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 bg-gray-100 rounded-full p-1">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+
+                        <div class="text-center space-y-4">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto text-3xl">
+                                ✨
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">
+                                    ${state.lang === 'ar' ? 'تم نسخ سؤالك!' : 'Question Copied!'}
+                                </h3>
+                                <p class="text-gray-500 text-sm mt-2">
+                                    ${state.lang === 'ar' 
+                                        ? 'النص جاهز في الحافظة. اضغط الزر أدناه لفتح Gemini ثم قم بعمل "لصق".' 
+                                        : 'Text is ready. Tap below to open Gemini app/site and "Paste".'}
+                                </p>
+                            </div>
+
+                            <a href="${targetUrl}" target="_blank" class="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl text-lg shadow-lg hover:shadow-xl transition-transform active:scale-95 flex items-center justify-center gap-2">
+                                <span>🚀</span>
+                                <span>${state.lang === 'ar' ? 'الذهاب إلى Gemini' : 'Go to Gemini'}</span>
+                            </a>
+                            
+                            <p class="text-[10px] text-gray-400 mt-4">
+                                ${state.lang === 'ar' ? '* سيفتح التطبيق إذا كان مدعوماً في إعدادات هاتفك' : '* Opens App if supported by your phone settings'}
+                            </p>
+                        </div>
                     </div>
                 </div>
             `;
