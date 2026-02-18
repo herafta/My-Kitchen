@@ -1,5 +1,5 @@
 [
-{
+            {
             "id": "REC-001",
             "slug": "mansaf-jordanian",
             "title": { "ar": "منسف أردني (الأصلي)", "en": "Authentic Jordanian Mansaf", "tr": "Orijinal Ürdün Mansafı" },
@@ -64,8 +64,8 @@
             "calories": 1200,
             "protein_type": "Meat",
             "tags": ["lamb", "yogurt", "rice", "banquet", "mansaf"]
-          },
-          {
+            },
+            {
             "id": "REC-002",
             "slug": "fattoush-salad",
             "title": { "ar": "فتوش شامي بدبس الرمان", "en": "Levantine Fattoush Salad", "tr": "Narlı Fettuş Salatası" },
@@ -124,8 +124,8 @@
             "calories": 350,
             "protein_type": "Vegetarian",
             "tags": ["salad", "vegan", "bread", "pomegranate"]
-          },
-          {
+            },
+            {
             "id": "REC-003",
             "slug": "kunafa-nabulsi",
             "title": { "ar": "كنافة نابلسية (خشنة)", "en": "Kunafa Nabulsi (Rough)", "tr": "Peynirli Künefe" },
@@ -184,8 +184,8 @@
             "calories": 700,
             "protein_type": "Dairy",
             "tags": ["sweet", "cheese", "pastry", "kunafa"]
-          },
-          {
+            },
+            {
             "id": "REC-004",
             "slug": "lentil-soup-rich",
             "title": { "ar": "شوربة عدس كريمية (طريقة المطاعم)", "en": "Restaurant-Style Lentil Soup", "tr": "Lokanta Usulü Mercimek Çorbası" },
@@ -242,8 +242,8 @@
             "calories": 220,
             "protein_type": "Plant",
             "tags": ["lentil", "soup", "vegan", "warm"]
-          },
-          {
+            },
+            {
             "id": "REC-005",
             "slug": "butter-chicken-deluxe",
             "title": { "ar": "بتر تشيكن (دجاج بالزبدة)", "en": "Deluxe Butter Chicken", "tr": "Tereyağlı Tavuk" },
@@ -304,8 +304,8 @@
             "calories": 650,
             "protein_type": "Chicken",
             "tags": ["chicken", "curry", "indian", "creamy"]
-          },
-          {
+            },
+            {
             "id": "REC-006",
             "slug": "foul-mudammas-special",
             "title": { "ar": "فول مدمس (خلطة السحور)", "en": "Special Suhoor Foul", "tr": "Özel Sahur Baklası" },
@@ -367,8 +367,8 @@
             "calories": 320,
             "protein_type": "Plant",
             "tags": ["beans", "breakfast", "suhoor", "vegan"]
-          },
-          {
+            },
+            {
             "id": "REC-007",
             "slug": "qamar-al-din-drink",
             "title": { "ar": "شراب قمر الدين المركز", "en": "Rich Qamar al-Din", "tr": "Kayısı Şerbeti" },
@@ -424,8 +424,8 @@
             "calories": 250,
             "protein_type": "None",
             "tags": ["drink", "apricot", "sweet", "cold"]
-          },
-          {
+            },
+            {
             "id": "REC-008",
             "slug": "sambousek-meat",
             "title": { "ar": "سمبوسك لحم مقرمش", "en": "Crispy Meat Sambousek", "tr": "Kıymalı Börek" },
@@ -484,8 +484,8 @@
             "calories": 180,
             "protein_type": "Meat",
             "tags": ["pastry", "fried", "meat", "starter"]
-          },
-          {
+            },
+            {
             "id": "REC-009",
             "slug": "maqluba",
             "title": { "ar": "مقلوبة الباذنجان والزهرة", "en": "Eggplant & Cauliflower Maqluba", "tr": "Patlıcanlı Maklube" },
@@ -547,8 +547,8 @@
             "calories": 900,
             "protein_type": "Meat",
             "tags": ["rice", "eggplant", "main", "upsidedown"]
-          },
-          {
+            },
+            {
             "id": "REC-010",
             "slug": "sahlab-hot",
             "title": { "ar": "سحلب ساخن بالمكسرات", "en": "Hot Sahlab Pudding", "tr": "Sıcak Salep" },
@@ -607,5 +607,6 @@
             "calories": 200,
             "protein_type": "Dairy",
             "tags": ["drink", "hot", "winter", "milk"]
-          }
-        ];
+            }
+];
+
